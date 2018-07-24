@@ -11,5 +11,6 @@ $ ./init.sh
 $ cd ..
 $ ln -s /path/to/home/.vim/.vimrc .vimrc
 $ vim
+:call dein#install()
 ```
 
