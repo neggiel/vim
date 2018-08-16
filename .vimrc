@@ -19,8 +19,11 @@ let @d = 'vf";x'
 " ファイルタイプの変更
 nnoremap <C-h><C-h> :set filetype=html<CR>
 nnoremap <C-j><C-j> :set filetype=php<CR>
+
 " ペーストモード
 nnoremap <C-p><C-p> :set paste<CR>
+autocmd InsertLeave * set nopaste
+
 " 新規タブ
 nnoremap <C-t><C-t> :tabnew<CR>
 
