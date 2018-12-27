@@ -15,6 +15,7 @@ set clipboard+=unnamed
 
 " マクロ
 let @d = 'vf";x'
+let @b = 'o'
 
 " ファイルタイプの変更
 nnoremap <C-h><C-h> :set filetype=html<CR>
@@ -61,6 +62,7 @@ if dein#load_state('~/.vim/plugins/')
     call dein#add('Shougo/neosnippet')
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('airblade/vim-gitgutter')
+    call dein#add('Lokaltog/vim-easymotion')
   endif
 
   call dein#end()
@@ -70,7 +72,22 @@ endif
 filetype plugin indent on
 syntax enable
 
-" Disable AutoComplPop.
+"vim-easymotion の設定 -------------------------
+  " デフォルトのキーマッピングを無効に
+    "let g:EasyMotion_do_mapping = 0
+  " f + 2文字 で画面全体を検索してジャンプ
+    nmap f <plug>(easymotion-overwin-f2)
+  " 検索時、大文字小文字を区別しない
+    let g:EasyMotion_smartcase = 1
+
+" Disable AutoComplPop.syMotion_keys = 'hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+  let g:EasyMotion_leader_key = "<SPACE>"
+  " 1 ストローク選択を優先する
+  let g:EasyMotion_grouping = 1
+  " カラー設定変更
+  hi EasyMotionTarget ctermbg=none ctermfg=red
+  hi EasyMotionShade  ctermbg=none ctermfg=blue
+
 let g:acp_enableAtStartup = 0
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
